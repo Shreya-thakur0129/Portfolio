@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://shreyathakur9294.github.io/portfolio",
+  "homepage": "https://shreya-thakur0129.github.io/Portfolio",
   "dependencies": {
     "framer-motion": "^11.0.8",
     "gsap": "^3.12.5",
