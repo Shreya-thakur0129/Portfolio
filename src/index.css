@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --cursor-size: 20px;
+  --primary-color: #f0f0f0;
+  --accent-color: #64ffda;
+}
+
+* {
+  cursor: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.custom-cursor {
+  position: fixed;
+  width: var(--cursor-size);
+  height: var(--cursor-size);
+  border-radius: 50%;
+  background-color: #fff;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 9999;
+  transition: transform 0.2s ease;
+}
+
+.custom-cursor.hover {
+  transform: scale(3);
+}
+
+.water-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.water-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 255, 0.3);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  z-index: 1;
+  pointer-events: none;
+}
+
+.skill-item {
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px) rotate(5deg);
+}
+
+.section-heading {
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-color), transparent);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.noise-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.05;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.water-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.water-ripple::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://assets.codepen.io/3685267/wave-animation.svg') repeat-x;
+  background-size: 100% 100%;
+  animation: wave 10s linear infinite;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@keyframes wave {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
+.project-hover-effect {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.project-hover-effect:hover {
+  transform: scale(1.05);
+}
+
+.skill-rotate {
+  transition: transform 0.5s ease;
+}
+
+.skill-rotate:hover {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.magnetic-button {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.magnetic-button:hover {
+  transform: translateY(-3px);
+}
+
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.hero-mask {
+  mask-image: url('https://assets.codepen.io/3685267/wave-mask.svg');
+  mask-size: cover;
+  mask-position: center;
+}
+
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
+.text-reveal:hover span {
+  transform: translateY(0);
+}
+
+/* Project card hover effects */
+.project-card img {
+  transition: all 0.7s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1) rotate(2deg);
+}
+
+.project-card .project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+/* Social icon hover effects */
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+}
+
+.github-icon:hover {
+  color: #333333;
+  background-color: white;
+}
+
+.linkedin-icon:hover {
+  color: white;
+  background-color: #0077B5;
+}
+
+.twitter-icon:hover {
+  color: white;
+  background-color: #1DA1F2;
+}
+
+.mail-icon:hover {
+  color: white;
+  background-color: #EA4335;
+}
